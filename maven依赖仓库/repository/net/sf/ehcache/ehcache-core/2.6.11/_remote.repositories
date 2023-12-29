@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:05 CST 2022
+ehcache-core-2.6.11.jar>nexus-aliyun=
+ehcache-core-2.6.11.jar>central=
+ehcache-core-2.6.11-sources.jar>central=
+ehcache-core-2.6.11.pom>central=
+ehcache-core-2.6.11-javadoc.jar>central=
+ehcache-core-2.6.11.pom>nexus-aliyun=

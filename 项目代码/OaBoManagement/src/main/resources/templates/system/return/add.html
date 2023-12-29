@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link th:href="@{/ajax/libs/iCheck/custom.css}" rel="stylesheet"/>
+
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="formId">
+
+        <input id="id" name="isApply" class="form-control" type="hidden" th:value="${isApply}">
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">样品编号：</label>
+            <div class="col-sm-8">
+                <input name="title" class="form-control" th:value="${sid}" type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">样品名称：</label>
+            <div class="col-sm-8">
+                <input class="form-control" th:value="${sname}" type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">审批人：</label>
+            <div class="col-sm-8">
+                <input name="agent_Id" class="form-control" th:value="${agentid}" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">归还数量：</label>
+            <div class="col-sm-8">
+
+                <div class="col-sm-8">
+                    <input name="leaveType" class="form-control"  type="text">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">归还时间：</label>
+            <div class="col-sm-8">
+                <input readonly="readonly"  name="leaveTime" id="leaveTime" class="form-control" type="text" placeholder="yyyy-MM-DD HH:mm:ss">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">归还理由：</label>
+            <div class="col-sm-8">
+                <textarea name="leaveContent" type="text"
+                          class="form-control">1</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-control-static col-sm-offset-9">
+                <button type="submit" class="btn btn-primary">确定</button>
+                <button onclick="$.modal.close()" class="btn btn-danger" type="button">关闭</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div th:include="include::footer"></div>
+<script th:src="@{/ajax/libs/select/select2.js}"></script>
+<script type="text/javascript">
+
+    var prefix = "/leave";
+
+    $("#formId").validate({
+        rules:{
+            leaveType:{
+                required:true,
+            },
+            leaveTime:{
+                required:true,
+            },
+
+            title:{
+                required:true,
+            },
+            agent_Id:{
+                required:true,
+            },
+            leaveContent:{
+                required:true,
+                maxlength:200,
+            }
+        },
+        submitHandler: function(form) {
+            $.operate.save(prefix + "/addSave", $('#formId').serialize());
+        }
+    });
+
+
+    layui.use('laydate',function () {
+        var laydate=layui.laydate;
+        //时间选择器
+        laydate.render({
+            elem: '#leaveTime'
+            ,type: 'datetime'
+        });
+
+    })
+
+
+</script>
+</body>
+</html>

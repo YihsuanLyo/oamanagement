@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:20:14 CST 2022
+http\://repo.spring.io/milestone/.error=Could not transfer artifact org.springframework.data.build\:spring-data-build\:pom\:1.5.3.RELEASE from/to spring-milestones (http\://repo.spring.io/milestone)\: Access denied to\: http\://repo.spring.io/milestone/org/springframework/data/build/spring-data-build/1.5.3.RELEASE/spring-data-build-1.5.3.RELEASE.pom , ReasonPhrase\:Forbidden.
+https\://repo.maven.apache.org/maven2/.lastUpdated=1611153599337
+@default-spring-snapshots-http\://repo.spring.io/snapshot/.lastUpdated=1611153596921
+http\://repo.spring.io/snapshot/.error=Could not transfer artifact org.springframework.data.build\:spring-data-build\:pom\:1.5.3.RELEASE from/to spring-snapshots (http\://repo.spring.io/snapshot)\: Access denied to\: http\://repo.spring.io/snapshot/org/springframework/data/build/spring-data-build/1.5.3.RELEASE/spring-data-build-1.5.3.RELEASE.pom , ReasonPhrase\:Forbidden.
+@default-spring-milestones-http\://repo.spring.io/milestone/.lastUpdated=1611153598739
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1649935214360

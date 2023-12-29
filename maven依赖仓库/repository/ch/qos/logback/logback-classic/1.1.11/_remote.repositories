@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:04 CST 2022
+logback-classic-1.1.11.jar>central=
+logback-classic-1.1.11.pom>nexus-aliyun=
+logback-classic-1.1.11.jar>nexus-aliyun=
+logback-classic-1.1.11.pom>central=
+logback-classic-1.1.11-javadoc.jar>central=
+logback-classic-1.1.11-sources.jar>central=

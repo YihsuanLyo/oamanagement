@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:04 CST 2022
+commons-net-3.6.jar>central=
+commons-net-3.6.pom>central=
+commons-net-3.6-javadoc.jar>central=
+commons-net-3.6-sources.jar>central=
+commons-net-3.6.pom>nexus-aliyun=
+commons-net-3.6.jar>nexus-aliyun=

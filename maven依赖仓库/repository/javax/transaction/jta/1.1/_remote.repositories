@@ -1,0 +1,7 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:04 CST 2022
+jta-1.1.jar>nexus-aliyun=
+jta-1.1.jar>central=
+jta-1.1.pom>central=
+jta-1.1-sources.jar>central=
+jta-1.1.pom>nexus-aliyun=

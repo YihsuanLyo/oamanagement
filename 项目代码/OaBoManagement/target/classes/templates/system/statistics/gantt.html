@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="include :: header">
+</head>
+<body  class="gray-bg">
+
+<div th:include="include :: footer" id="main" style="width: 1000px;height: 500px;"></div>
+<script th:inline="javascript">
+    var programId = [[${programId}]];
+    var myChart = echarts.init(document.getElementById('main'));
+
+    myChart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+
+
+        },
+        title: {
+            text: '项目进度',
+            left: 'center'
+        },
+        dataZoom: [
+            {
+                //区域缩放组件的类型为滑块，默认作用在x轴上
+                type: 'slider',
+                //区域缩放组件的过滤模式，weakFilter：在进行区域缩放时，允许图形的一部分在坐标系上(可见)，另一部分在坐标系外(隐藏)
+                filterMode: 'weakFilter',
+                showDataShadow: false,
+                top: 400,
+                height: 10,
+                //区域缩放组件边框颜色
+                borderColor: 'transparent',
+                //区域缩放组件边框背景
+                backgroundColor: '#e2e2e2',
+                //区域缩放组件上的手柄的样式
+                handleIcon: 'M10.7,11.9H9.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z', // jshint ignore:line
+                //手柄大小
+                handleSize:20,
+                //为手柄设置阴影效果
+                handleStyle: {
+                    shadowBlur: 6,
+                    shadowOffsetX: 1,
+                    shadowOffsetY: 2,
+                    shadowColor: '#aaa'
+                },
+                labelFormatter: ''
+            },
+            {
+                //区域缩放组件的类型为内置在坐标系中，默认作用在x轴的坐标系中
+                type: 'inside',
+                //区域缩放组件的过滤模式，weakFilter：在进行区域缩放时，允许图形的一部分在坐标系上(可见)，另一部分在坐标系外(隐藏)
+                filterMode: 'weakFilter'
+            }
+        ],
+        //图表底板
+        grid: {
+            height: 300
+        },
+        xAxis: {
+
+            type:'value',
+
+        },
+        yAxis: {
+           type:'category',
+            data:[],
+            axisTick: {
+                alignWithLabel: true//保证刻度线和标签对齐，当boundaryGap为true的时候有效，不过boundaryGap默认就是true
+            }
+        },
+
+        series: [
+            {
+                name: '计划工时',
+                type: 'bar',
+                data: []
+            },
+            {
+                name: '完成工时',
+                type: 'bar',
+                data: []
+            }
+        ]
+    });
+
+    $.ajax({
+        url:"/program/statistics/gantt/tableList/"+programId,
+        async:false,
+        cache:false,
+        success:function(data){
+            myChart.setOption({
+                yAxis:{data:data.categories},
+                series:[{
+
+                    barWidth: 20,
+
+                    name: '计划工时',
+                    type: 'bar',
+                    data: data.data[0],
+                    itemStyle:{
+
+                            normal: {
+                                color: '#B9D8FF'
+
+                            }
+
+                    }
+                },
+                    {
+                        barGap: "-100%", /*这里设置包含关系，只需要这一句话*/
+                        barWidth: 20,
+
+                        name: '完成工时',
+                        type: 'bar',
+
+                        data: data.data[1],
+                        itemStyle:{
+                            normal: {
+                                color: '#85A4D1'
+
+                            }
+                        }
+                    }]
+            })
+
+        }
+    })
+
+
+    function publicDateTimestamp(dateChange,type){
+        if(dateChange){
+            if(type == 13){
+                let date = dateChange.substring(0,19);
+                date = dateChange.replace(/-/g,'/');
+                let timestamp = new Date(date).getTime();
+                return timestamp
+            }else if(type == 10){
+                let date = dateChange.substring(0,19);
+                date = dateChange.replace(/-/g,'/');
+                let timestamp = new Date(date).getTime() / 1000;
+                return timestamp
+            }else{
+                alert('type参数不正确 请检查')
+            }
+        }else{
+            alert('publicDateTimestamp(日期转换时间戳)没有传入参数')
+        }
+
+    }
+
+</script>
+</body>
+</html>

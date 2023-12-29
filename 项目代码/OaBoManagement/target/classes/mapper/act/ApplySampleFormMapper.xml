@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yj.oa.project.mapper.ApplySampleMapper" >
+  <resultMap id="BaseResultMap" type="com.yj.oa.project.po.ApplySample" >
+
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="procInstId" property="procInstanId" jdbcType="VARCHAR" />
+    <result column="proposer_Id" property="proposer_Id" jdbcType="VARCHAR" />
+    <result column="agent_Id" property="agent_Id" jdbcType="VARCHAR" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="applyreason" property="applyreason" jdbcType="VARCHAR" />
+    <result column="applytime" property="applytime" jdbcType="TIMESTAMP" />
+    <result column="applyquan" property="applyquan" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="reply" property="reply" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="currDate" property="currDate" jdbcType="DATE" />
+  </resultMap>
+
+
+  <sql id="Base_Column_List" >
+     *
+  </sql>
+
+
+
+  <!--
+     统计一个月有多少天请假
+  -->
+  <select id="selectByUserIdAndDate" resultMap="BaseResultMap" parameterType="ApplySample">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM t_sample_get t
+    <where>
+
+        <if test="proposer_Id !=null and proposer_Id !=''">
+          and proposer_Id=#{proposer_Id}
+        </if>
+        <if test="beginTime !=null">
+          <![CDATA[   and DATE_FORMAT(currDate, '%Y-%m-%d') >=  DATE_FORMAT(#{beginTime}, '%Y-%m-%d')   ]]>
+        </if>
+        <if test="overTime !=null">
+          <![CDATA[  and DATE_FORMAT(currDate, '%Y-%m-%d') <= DATE_FORMAT(#{overTime}, '%Y-%m-%d')    ]]>
+        </if>
+
+    </where>
+  </select>
+
+
+  <!--查询列表-->
+  <select id="selectApplySampleList" resultMap="BaseResultMap" parameterType="ApplySample">
+     SELECT
+    <include refid="Base_Column_List"/>
+    FROM t_applyroom t
+    <where>
+      <if test="proposer_Id !null and proposer_Id != ''">
+      and proposer_Id=#{proposer_Id},
+    </if>
+      <if test="procInstanId !null and procInstanId != ''">
+      and procInstan_Id=#{procInstanId},
+    </if>
+      <if test="roomName !=null and roomName != ''">
+        and roomName=#{roomName},
+      </if>
+      <if test="status !=null and status != ''">
+        and status=#{status},
+      </if>
+    </where>
+  </select>
+
+
+  <!--根据主键查询-->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="INTEGER" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sample_get
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+
+  <!--批量删除-->
+  <delete id="deleteByprocInstIds" parameterType="java.lang.Integer" >
+    delete from t_sample_get
+    WHERE procInstId IN
+    <foreach collection="array" open="(" separator="," close=")" item="id">
+      #{id}
+    </foreach>
+  </delete>
+
+  <!--添加-->
+  <insert id="insertSelective" parameterType="com.yj.oa.project.po.ApplySample" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into t_sample_get
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="proposer_Id != null" >
+        proposer_Id,
+      </if>
+
+      <if test="agent_Id != null" >
+        agent_Id,
+      </if>
+
+      <if test="sid !=null ">
+        sid,
+      </if>
+
+      <if test="applyreason !=null ">
+        applyreason,
+      </if>
+
+      <if test="applytime !=null ">
+        applytime,
+      </if>
+
+      <if test="applyquan != null" >
+        applyquan,
+      </if>
+
+      <if test="createTime !=null ">
+        createTime,
+      </if>
+
+      <if test="endTime != null" >
+        endTime,
+      </if>
+
+      <if test="reply != null" >
+        reply,
+      </if>
+        currDate,
+
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="proposer_Id != null" >
+        #{proposer_Id,jdbcType=VARCHAR},
+      </if>
+
+      <if test="agent_Id != null" >
+        #{agent_Id,jdbcType=VARCHAR},
+      </if>
+
+      <if test="sid !=null and title != ''">
+        #{s_Id},
+      </if>
+
+      <if test="applyreason != null" >
+        #{applyreason,jdbcType=VARCHAR},
+      </if>
+
+      <if test="applytime != null" >
+        #{applytime,jdbcType=TIMESTAMP},
+      </if>
+
+      <if test="applyquan != null" >
+        #{applyquan,jdbcType=INTEGER},
+      </if>
+
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+
+      <if test="reply != null" >
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      CURRENT_DATE()
+    </trim>
+  </insert>
+
+  <!--修改-->
+  <update id="updateByPrimaryKeySelective" parameterType="com.yj.oa.project.po.ApplySample" >
+    update t_sample_get
+    <set>
+      <if test="procInstanId != null" >
+        procInstId = #{procInstanId,jdbcType=VARCHAR},
+      </if>
+
+      <if test="proposer_Id != null" >
+        proposer_Id = #{proposer_Id,jdbcType=VARCHAR},
+      </if>
+
+      <if test="agent_Id != null" >
+        agent_Id = #{agent_Id,jdbcType=VARCHAR},
+      </if>
+
+      <if test="applyreason != null" >
+        applyreason  = #{title,jdbcType=VARCHAR},
+      </if>
+
+      <if test="applytime != null" >
+        applytime = #{applytime,jdbcType=TIMESTAMP},
+      </if>
+
+      <if test="applyquan != null" >
+        applyquan = #{applyquan,jdbcType=INTEGER},
+      </if>
+
+      <if test="createTime != null" >
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+
+      <if test="endTime != null" >
+        endTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+
+      <if test="reply != null" >
+        reply = #{reply,jdbcType=VARCHAR},
+      </if>
+
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:20:13 CST 2022
+http\://repo.spring.io/milestone/.error=Could not transfer artifact org.springframework\:spring-framework-bom\:pom\:4.1.7.RELEASE from/to spring-milestones (http\://repo.spring.io/milestone)\: Access denied to\: http\://repo.spring.io/milestone/org/springframework/spring-framework-bom/4.1.7.RELEASE/spring-framework-bom-4.1.7.RELEASE.pom , ReasonPhrase\:Forbidden.
+https\://repo.maven.apache.org/maven2/.lastUpdated=1611153592829
+@default-spring-snapshots-http\://repo.spring.io/snapshot/.lastUpdated=1611153590635
+http\://repo.spring.io/snapshot/.error=Could not transfer artifact org.springframework\:spring-framework-bom\:pom\:4.1.7.RELEASE from/to spring-snapshots (http\://repo.spring.io/snapshot)\: Access denied to\: http\://repo.spring.io/snapshot/org/springframework/spring-framework-bom/4.1.7.RELEASE/spring-framework-bom-4.1.7.RELEASE.pom , ReasonPhrase\:Forbidden.
+@default-spring-milestones-http\://repo.spring.io/milestone/.lastUpdated=1611153591339
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1649935213861

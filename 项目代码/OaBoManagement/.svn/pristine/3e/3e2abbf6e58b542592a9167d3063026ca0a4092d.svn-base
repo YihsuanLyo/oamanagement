@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: OA
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: zhubo
+Implementation-Vendor-Id: com.yj
+Build-Jdk: 1.8.0_211
+Implementation-URL: http://projects.spring.io/spring-boot/yj/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

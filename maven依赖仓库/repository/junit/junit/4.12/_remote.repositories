@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:05 CST 2022
+junit-4.12-javadoc.jar>central=
+junit-4.12-sources.jar>central=
+junit-4.12.jar>nexus-aliyun=
+junit-4.12.jar>central=
+junit-4.12.pom>central=
+junit-4.12.pom>nexus-aliyun=

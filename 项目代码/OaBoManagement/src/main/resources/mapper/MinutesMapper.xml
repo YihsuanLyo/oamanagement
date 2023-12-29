@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yj.oa.project.mapper.MinutesMapper">
+    <resultMap id="BaseResultMap" type="com.yj.oa.project.po.Minutes">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="create_By" property="createBy" jdbcType="VARCHAR"/>
+
+        <result column="meetId" property="meetId" jdbcType="INTEGER"/>
+
+        <result column="descr" property="descr" jdbcType="VARCHAR"/>
+
+        <result column="create_Time" property="createTime" jdbcType="TIMESTAMP"/>
+
+
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id , create_By,descr, meetId, create_Time
+  </sql>
+
+    <!--
+       根据主键查询
+    -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        t_minutes
+
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <!--
+       所有数据，列表
+    -->
+    <select id="selectMyMinutesList" resultMap="BaseResultMap" parameterType="String">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        t_minutes
+
+        WHERE create_By=#{createBy}
+        ORDER BY create_Time DESC
+    </select>
+
+
+    <!--
+       我的会议 个人会议
+    -->
+    <select id="selectByMinutesList" resultMap="BaseResultMap" parameterType="Minutes">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        t_minutes
+        <where>
+            <if test="id !=null">
+                and id=#{id}
+            </if>
+
+            <if test="createBy !=null and createBy !=''">
+                and create_By=#{createBy}
+            </if>
+            <if test="meetId!=null and meetId !=''">
+                and meetId=#{meetId,jdbcType=INTEGER}
+            </if>
+
+        </where>
+
+    </select>
+
+
+    <!--
+        批量删除
+    -->
+    <delete id="deleteByPrimaryKeys" parameterType="java.lang.Integer">
+        delete from t_minutes
+        where id IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id,jdbcType=INTEGER}
+        </foreach>
+    </delete>
+
+    <delete id="deleteByMeetid" parameterType="java.lang.Integer">
+        delete from t_minutes
+        where meetId IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id,jdbcType=INTEGER}
+        </foreach>
+    </delete>
+
+
+    <!--
+       添加
+    -->
+    <insert id="insertSelective" parameterType="com.yj.oa.project.po.Minutes" useGeneratedKeys="true"
+            keyProperty="id" keyColumn="id">
+        insert into t_minutes
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="createBy != null">
+                create_By,
+            </if>
+
+            <if test="descr != null">
+                descr,
+            </if>
+
+            <if test="meetId != null">
+                meetId,
+            </if>
+            <if test="createTime != null">
+                create_Time,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+
+
+            <if test="descr != null">
+                #{descr,jdbcType=VARCHAR},
+            </if>
+
+            <if test="meetId != null">
+                #{meetId,jdbcType=INTEGER},
+            </if>
+
+
+
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+
+
+        </trim>
+    </insert>
+
+
+    <!--
+        修改
+    -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.yj.oa.project.po.Minutes">
+        update t_minutes
+        <set>
+            <if test="createBy != null">
+                create_By = #{createBy,jdbcType=VARCHAR},
+            </if>
+
+            <if test="descr != null">
+                descr=#{descr,jdbcType=VARCHAR},
+            </if>
+
+            <if test="createTime != null">
+                create_Time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+
+            <if test="meetId != null">
+                meetId = #{meetId,jdbcType=INTEGER},
+            </if>
+
+
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectMinutesList" resultMap="BaseResultMap" parameterType="Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        t_minutes
+
+        WHERE meetId = #{meetId}
+        ORDER BY create_Time DESC
+    </select>
+
+</mapper>

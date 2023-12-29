@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:05 CST 2022
+slf4j-api-1.7.25.jar>central=
+slf4j-api-1.7.25.pom>central=
+slf4j-api-1.7.25-javadoc.jar>central=
+slf4j-api-1.7.25-sources.jar>central=
+slf4j-api-1.7.25.pom>nexus-aliyun=
+slf4j-api-1.7.25.jar>nexus-aliyun=

@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:04 CST 2022
+druid-1.0.18.pom>nexus-aliyun=
+druid-1.0.18.jar>nexus-aliyun=
+druid-1.0.18.jar>central=
+druid-1.0.18.pom>central=
+druid-1.0.18-javadoc.jar>central=
+druid-1.0.18-sources.jar>central=

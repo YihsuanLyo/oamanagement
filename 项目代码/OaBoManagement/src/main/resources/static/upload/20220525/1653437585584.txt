@@ -1,0 +1,31 @@
+%0 Journal Article
+%A 楚翘
+%A 肖蓉
+%A 林倩
+%+ 南方医科大学公共卫生与热带医学学院心理学系;
+%T 大学生拖延行为状况与特点研究
+%J 中国健康心理学杂志
+%D 2010
+%V 18
+%N 08
+%K 大学生;拖延;一般拖延量表
+%X 目的研究大学生拖延行为及其人群表现特点。方法采用一般拖延问卷(GPS)对819名大学生进行问卷调查。结果大学生拖延总分为(54.96±10.05),92.9%的大学生有不同程度的拖延表现。男生(54.73±10.33)和女生(54.91±9.76)在总体拖延水平上不存在统计学差异(P>0.05),但在具体拖延行为表现上存在差异;不同年级大学生的拖延行为存在显著差异(F=3.740,P=0.005),大三学生(56.06±9.89)的拖延得分最高,但和大一(54.71±11.32)学生无差异,而是显著高于大二(53.52±9.07)、大四(53.59±10.37)和大五(52.19±9.88)学生;是否独生子女(t=-0.453,P=0.650)及家庭居住地不同的大学生(F=0.709,P=0.492)在拖延状况上无显著差异。结论拖延行为在大学生中普遍存在。
+%P 970-972
+%@ 1005-1252
+%L 11-5257/R
+%W CNKI
+
+%0 Journal Article
+%A Steel Piers
+%+ Human Resources and Organizational Dynamics, University of Calgary, Calgary, AB, Canada. Piers.Steel@Haskayne.UCalgary.ca
+%T The nature of procrastination: a meta-analytic and theoretical review of quintessential self-regulatory failure.
+%J Psychological bulletin
+%D 2007
+%N 1
+%V 133
+%X Procrastination is a prevalent and pernicious form of self-regulatory failure that is not entirely understood. Hence, the relevant conceptual, theoretical, and empirical work is reviewed, drawing upon correlational, experimental, and qualitative findings. A meta-analysis of procrastination's possible causes and effects, based on 691 correlations, reveals that neuroticism, rebelliousness, and sensation seeking show only a weak connection. Strong and consistent predictors of procrastination were task aversiveness, task delay, self-efficacy, and impulsiveness, as well as conscientiousness and its facets of self-control, distractibility, organization, and achievement motivation. These effects prove consistent with temporal motivation theory, an integrative hybrid of expectancy theory and hyperbolic discounting. Continued research into procrastination should not be delayed, especially because its prevalence appears to be growing.
+%@ 0033-2909
+%W CNKI
+
+
+

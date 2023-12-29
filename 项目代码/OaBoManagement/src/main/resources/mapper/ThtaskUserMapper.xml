@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yj.oa.project.mapper.ThtaskUserMapper">
+    <resultMap id="BaseResultMap" type="com.yj.oa.project.po.ThtaskUser">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="s_Id" property="sId" jdbcType="INTEGER"/>
+        <result column="su_id" property="suId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, s_Id, su_id
+  </sql>
+
+    <delete id="deleteByPrimaryKeys" parameterType="java.lang.Integer">
+        delete from t_thtask_user
+        where s_Id IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id,jdbcType=INTEGER}
+        </foreach>
+    </delete>
+
+    <insert id="insertSelective" parameterType="ThtaskUser">
+
+        insert into t_thtask_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sId != null">
+                s_Id,
+            </if>
+            <if test="suId != null">
+                su_Id,
+            </if>
+
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sId != null">
+                #{sId,jdbcType=INTEGER},
+            </if>
+            <if test="suId != null">
+                #{suId,jdbcType=VARCHAR},
+            </if>
+
+        </trim>
+    </insert>
+
+
+
+
+
+</mapper>

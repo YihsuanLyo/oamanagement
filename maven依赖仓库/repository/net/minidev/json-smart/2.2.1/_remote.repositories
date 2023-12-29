@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:05 CST 2022
+json-smart-2.2.1-sources.jar>central=
+json-smart-2.2.1-javadoc.jar>central=
+json-smart-2.2.1.jar>central=
+json-smart-2.2.1.pom>nexus-aliyun=
+json-smart-2.2.1.jar>nexus-aliyun=
+json-smart-2.2.1.pom>central=

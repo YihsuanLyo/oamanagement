@@ -1,0 +1,17 @@
+jdk1.8
+
+mysql5.7 注意：MySQL8.0一定不能用，MySQL5.5 5.6 5.7都可以用
+
+eclipse
+
+
+环境搭建教程：http://programmer.ischoolbar.com/index.php/article/article/id/169.html
+
+
+
+pom文件jar包下载不下来的解决方案：
+
+maven搭建环境：http://programmer.ischoolbar.com/index.php/article/article/id/236.html
+
+
+修改maven仓库及Eclipse的maven配置文件：http://programmer.ischoolbar.com/index.php/article/article/id/237.html

@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:04 CST 2022
+jcl-over-slf4j-1.7.25-sources.jar>central=
+jcl-over-slf4j-1.7.25-javadoc.jar>central=
+jcl-over-slf4j-1.7.25.jar>central=
+jcl-over-slf4j-1.7.25.pom>central=
+jcl-over-slf4j-1.7.25.pom>nexus-aliyun=
+jcl-over-slf4j-1.7.25.jar>nexus-aliyun=

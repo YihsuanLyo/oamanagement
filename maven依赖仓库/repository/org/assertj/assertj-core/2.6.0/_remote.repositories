@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:05 CST 2022
+assertj-core-2.6.0.jar>central=
+assertj-core-2.6.0.pom>central=
+assertj-core-2.6.0-javadoc.jar>central=
+assertj-core-2.6.0-sources.jar>central=
+assertj-core-2.6.0.pom>nexus-aliyun=
+assertj-core-2.6.0.jar>nexus-aliyun=

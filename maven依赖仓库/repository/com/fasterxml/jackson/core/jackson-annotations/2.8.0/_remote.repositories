@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:21:04 CST 2022
+jackson-annotations-2.8.0-javadoc.jar>central=
+jackson-annotations-2.8.0.pom>nexus-aliyun=
+jackson-annotations-2.8.0.jar>nexus-aliyun=
+jackson-annotations-2.8.0-sources.jar>central=
+jackson-annotations-2.8.0.jar>central=
+jackson-annotations-2.8.0.pom>central=

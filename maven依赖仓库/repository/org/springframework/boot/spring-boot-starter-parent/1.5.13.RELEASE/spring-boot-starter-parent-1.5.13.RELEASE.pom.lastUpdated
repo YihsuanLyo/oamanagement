@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Apr 14 19:19:44 CST 2022
+@default-mirrorId-http\://central.maven.org/maven2/.lastUpdated=1611153322038
+https\://repo.maven.apache.org/maven2/.lastUpdated=1611153406785
+http\://central.maven.org/maven2/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:1.5.13.RELEASE from/to mirrorId (http\://central.maven.org/maven2/)\: central.maven.org
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1649935184714
